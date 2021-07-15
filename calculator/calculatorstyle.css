@@ -1,0 +1,21 @@
+* {
+    text-align: center;
+    box-sizing: border-box;
+    margin : 5px;
+}
+h1 {
+    margin-bottom: 5%;
+}
+input {
+    font-size: medium;
+    text-align: right;
+}
+button {
+    height: 0.1%;
+    width: 5%;
+}
+button:hover {
+    background-color: dimgray;
+    color: snow;
+    transform: scale(1.25);
+}
