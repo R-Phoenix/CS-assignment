@@ -42,15 +42,17 @@ function addoperator (opr)
         r = result;
     prev = r;
     operator = opr;
+    isdecimal = false;
     result = 0;
     updatedisplay();
 }
 function del()
 { 
-    if (result%1 > 0)
+    console.log(result%1);
+    if (result%1 != 0)
     {
-        result -= result%(10**(decimalplace-2));
-        decimalplace -=1;
+        var r = (10**(decimalplace+2));
+        result -= result%r;
     }
     else
     {
@@ -85,12 +87,20 @@ function soln()
         default:
             r = "Error";
     }
+    if (r%1 == 0)
+        isdecimal = false;
     return r;
 }
 function equals()
 {
     if (prev == "Result :")
     {
+        return;
+    }
+    else if (prev == 0)
+    {
+        prev = "Result :";
+        updatedisplay();
         return;
     }
     result = soln();
