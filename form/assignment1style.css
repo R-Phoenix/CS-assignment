@@ -1,0 +1,16 @@
+* {
+    text-align: center;
+    margin : 10px;
+}
+div {
+    background-color: lightsteelblue;
+}
+.toggle{
+    display: none;
+}
+.optional input[value = "1"]:checked ~ .toggle{
+    display: block;
+}
+#entry {
+    width: 20%;
+}

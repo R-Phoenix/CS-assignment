@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Registration Form</title>
+    <link rel="stylesheet" href="assignment1style.css">
+</head>
+<body>
+    <h1>Employee Registration Form</h1>
+    <br>
+    <div class = "sub-box">
+        <h2>Personal Details</h2>
+        <form>
+            <label for="fname">First Name :</label>
+            <input type="text" placeholder="First name" id="fname" required>
+            <label for="mname">Middle Name :</label>
+            <input type="text" placeholder="Middle name" id="mname">
+            <label for="lname">Last Name :</label>
+            <input type="text" placeholder="Last name" id="lname" required>
+            <br>
+            <label for="fathername">Father's Name</label>
+            <input type="text" placeholder="Father's name" id="fathername" required>
+            <label for="mothername">Mother's Name</label>
+            <input type="text" placeholder="Mother's name" id="mothername" required>
+            <br>
+            <label for="bod">Birth Date</label>
+            <input type="date" id="bod" required>
+            <label for="gender">Gender</label>
+            <select id="gender" required>
+                <option value = "male">Male</option>
+                <option value = "female">Female</option>
+            </select>
+            <br>
+            <label for="contact">Contact informantion :</label>
+            <select id="contact" required>
+                <option value = "mobile">Mobile</option>
+                <option value = "landline"> Landline</option>
+            </select>
+            <input type="tel" pattern="[0-9]{9}" required>
+            <br>
+            <label>Language Known :</label>
+            <a>
+                <input type = "checkbox" id="English">
+                <label for="English">English</label>
+                <input type = "checkbox" id="Bengali">
+                <label for="Bengali">Bengali</label>
+                <input type = "checkbox" id="Hindi">
+                <label for="Hindi">Hindi</label>
+            </a>
+            <br>
+            <label for="mothertongue">Mother Tongue</label>
+            <input type="text" placeholder="Mother Tongue" id="mothertongue">
+            <br>
+            <label for="aadhar number">Aadhar Number</label>
+            <input type="number" placeholder="Aadhar number" required>
+            <br>
+            <label for="pan number">PAN Number</label>
+            <input type="number" placeholder="PAN number" required>
+            <br>
+            <label for="imgemployee">Image of Employee: </label>
+            <input type="file" id="imgemployee">
+            <br>
+            <label for="imgsign">Image of Employee's Signature: </label>
+            <input type="file" id="imgsign">
+        </form>
+    </div>
+    <br>
+    <div>
+        <h2>Address Details</h2>
+        <h3>Present Address</h3>
+        <form>
+            <label for="nation">Nationality</label>
+            <input type="text" id="nation" placeholder="Nationality">
+            <label for="state">State</label>
+            <input type="text" id="state" placeholder="State">
+            <label for="dis">District</label>
+            <input type="text" id="dis" placeholder="District">
+            <br>
+            <label for="city">City</label>
+            <input type="text" id="city" placeholder="City">
+            <label for="stname">Street Name</label>
+            <input type="text" id="stname" placeholder="Street Name">
+            <label for="pin">Pincode</label>
+            <input type="number" id="pin" placeholder="Pincode">
+        </form>
+        <h3>Permanent Address</h3>
+        <p>Is your present address your permanent address?</p>
+        <form class="optional" required>
+            <input type="radio" name="address" value="0" required>
+            <label for="yes">Yes</label>
+            <input type="radio" name="address" value="1" class="optional" required>
+            <label for="no">No</label>
+            <div class="toggle">
+                <label for="nation">Nationality</label>
+                <input type="text" id="nation" placeholder="Nationality">
+                <label for="state">State</label>
+                <input type="text" id="state" placeholder="State">
+                <label for="dis">District</label>
+                <input type="text" id="dis" placeholder="District">
+                <br>
+                <label for="city">City</label>
+                <input type="text" id="city" placeholder="City">
+                <label for="stname">Street Name</label>
+                <input type="text" id="stname" placeholder="Street Name">
+                <label for="pin">Pincode</label>
+                <input type="number" id="pin" placeholder="Pincode">
+            </div>
+        </form>
+    </div>
+    <form>
+        <input type="submit" value="Submit" id="entry">
+    </form>
+</body>
+</html>

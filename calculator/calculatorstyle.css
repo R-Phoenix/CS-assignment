@@ -1,10 +1,12 @@
 * {
     text-align: center;
     box-sizing: border-box;
+    background-color: aqua;
     margin : 5px;
 }
 h1 {
     margin-bottom: 5%;
+    background-color: cornflowerblue;
 }
 input {
     font-size: medium;
@@ -13,6 +15,8 @@ input {
 button {
     height: 0.1%;
     width: 5%;
+    background-color: black;
+    color: coral;
 }
 button:hover {
     background-color: dimgray;

@@ -8,8 +8,22 @@ function updatedisplay()
     document.getElementById('display1').value = prev + operator;
     document.getElementById('display2').value = result;
 }
+function clearall()
+{
+    console.log("clear");
+    isdecimal = false;
+    decimalplace = 0;
+    result = 0;
+    prev = 0;
+    updatedisplay();
+}
 function addnumber (n)
 {
+    if (result == "infinite" || result == "Error")
+    {
+        result = 0;
+        prev = 0;
+    }
     if (isdecimal == true)
     {
         result += n*(10**decimalplace);
@@ -22,11 +36,7 @@ function addnumber (n)
 function adddecimal()
 {
     if (isdecimal)
-    {
-        result = 0;
-        prev = "Error";
-        updatedisplay();
-    }
+        return;
     else
     {
         isdecimal = true;
@@ -48,11 +58,18 @@ function addoperator (opr)
 }
 function del()
 { 
-    console.log(result%1);
+    if (result == "infinite" || result == "Error")
+    {
+        result = 0;
+        prev = 0;
+        updatedisplay();
+        return;
+    }
     if (result%1 != 0)
     {
         var r = (10**(decimalplace+2));
         result -= result%r;
+        decimalplace+=1;
     }
     else
     {
@@ -64,31 +81,50 @@ function del()
 function soln()
 {
     var r=0.0;
-    switch (operator)
-    {
-        case '+':
-            r = prev + result;
-            break;
-        case '-':
-            r = prev - result;
-            break;
-        case '*':
-            r = prev * result;
-            break;
-        case '/':
-            r = prev / result;
-            break;
-        case '%':
-            r = prev % result;
-            break;
-        case '**':
-            r = prev ** result;
-            break;
-        default:
-            r = "Error";
-    }
-    if (r%1 == 0)
+    if (prev == 0 && result == 0)
+        return;
+    if (result == 0 && operator == '/')
+        r = "infinite";
+    else if (result == 0 && operator == '%')
+        r="Error";
+    else
+        switch (operator)
+        {
+            case '+':
+                r = prev + result;
+                break;
+            case '-':
+                r = prev - result;
+                break;
+            case '*':
+                r = prev * result;
+                break;
+            case '/':
+                r = prev / result;
+                break;
+            case '%':
+                r = prev % result;
+                break;
+            case '**':
+                r = prev ** result;
+                break;
+            default:
+                r = "Error";
+        }
+    if (r == "infinite" || r == "Error")
         isdecimal = false;
+    else if (r%1 == 0)
+        isdecimal = false;
+    else if (r%1 != 0)
+    {
+        var check = r%1;
+        decimalplace = -1;
+        while (check%1 != 0)
+        {
+            decimalplace-=1;
+            check*= 10;
+        }
+    }
     return r;
 }
 function equals()
@@ -97,7 +133,7 @@ function equals()
     {
         return;
     }
-    else if (prev == 0)
+    else if (prev == 0 && operator.length == 0)
     {
         prev = "Result :";
         updatedisplay();
@@ -106,8 +142,9 @@ function equals()
     result = soln();
     operator = "";
     if (result == "Error")
-        prev = "No operator";
+        prev = "Wrong Input";
     else
         prev = "Result :";
     updatedisplay();
 }
+
